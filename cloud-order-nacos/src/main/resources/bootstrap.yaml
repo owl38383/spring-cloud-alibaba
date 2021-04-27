@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cloud-order-nacos
+  cloud:
+    nacos:
+      config:
+        server-addr: 101.200.222.212:8848
+        name: cloud-order-nacos
+        file-extension: yaml
+        context-path: nacos
+    sentinel:
+      transport:
+        dashboard: 101.200.222.212:8748
+        port: 8748
