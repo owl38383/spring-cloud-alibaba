@@ -1,0 +1,18 @@
+-- auto Generated on 2021-04-28
+-- DROP TABLE IF EXISTS user_base;
+CREATE TABLE `test_user`(
+	id BIGINT (15) NOT NULL AUTO_INCREMENT COMMENT 'id',
+	username VARCHAR (50) NOT NULL DEFAULT '' COMMENT '用户名唯一',
+	cell_phone VARCHAR (50) NOT NULL DEFAULT '' COMMENT '手机号唯一',
+	nick_name VARCHAR (50) NOT NULL DEFAULT '' COMMENT '昵称唯一',
+	head_img_url VARCHAR (50) NOT NULL DEFAULT '' COMMENT '用户头像Url',
+	email VARCHAR (50) NOT NULL DEFAULT '' COMMENT '邮箱',
+	`status` INT (11) NOT NULL DEFAULT -1 COMMENT '状态: 1有效，2无效',
+	create_time DATETIME NOT NULL DEFAULT '1000-01-01 00:00:00' COMMENT '创建时间',
+	`password` VARCHAR (50) NOT NULL DEFAULT '' COMMENT '密码',
+	salt VARCHAR (50) NOT NULL DEFAULT '' COMMENT '密码扰码',
+	pay_password VARCHAR (50) NOT NULL DEFAULT '' COMMENT '支付密码',
+	pay_salt VARCHAR (50) NOT NULL DEFAULT '' COMMENT '支付密码扰码',
+	INDEX(id),
+	PRIMARY KEY (id)
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT 'user';

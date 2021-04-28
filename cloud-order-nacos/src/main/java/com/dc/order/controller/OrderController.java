@@ -19,13 +19,12 @@ import java.util.Random;
  * @USER: 25738
  * @DATE: 2021/4/27
  **/
-@RequestMapping("/order")
 @RestController
 public class OrderController {
 		@Resource
 		private OrderService orderService;
 
-		@RequestMapping("test")
+		@RequestMapping("/order/test")
 		public Object tets() {
 			return "dddddddddd";
 		}
@@ -38,24 +37,15 @@ public class OrderController {
 				return orderService.insert(order);
 		}
 
-		@RequestMapping("get/{id}")
+		@RequestMapping("/order/get/{id}")
 		@DS("slave_1")
 		public Object getById(@PathVariable("id") Long id) {
 				return orderService.selectById(id);
 		}
 
-		@RequestMapping("queryList")
+		@RequestMapping("/order/queryList")
 		@DS("master")
 		public Object queryList() {
 				return orderService.selectList(null);
-		}
-
-		@Resource
-		UserMapper userMapper;
-
-		@RequestMapping("queryUser")
-		@DS("oracle")
-		public Object queryUser() {
-				return userMapper.selectList(null);
 		}
 }

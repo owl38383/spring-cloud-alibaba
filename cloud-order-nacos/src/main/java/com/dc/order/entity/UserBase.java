@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.util.Date;
 
-@TableName(value = "XF_USER")
+@TableName(value = "test_user")
 public class UserBase extends Entity {
     private Long id;
     private String username;//用户名唯一
