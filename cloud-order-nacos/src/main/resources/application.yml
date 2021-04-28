@@ -5,6 +5,7 @@ spring:
   autoconfigure:
     exclude: com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceAutoConfigure
   datasource:
+    # 多数据源配置
     dynamic:
       primary: master #设置默认的数据源或者数据源组,默认值即为master
       strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
@@ -48,6 +49,15 @@ spring:
         wall:
           config:
             multi-statement-allow: true
+  data:
+    mongodb:
+      uri: mongodb://admin:123456@101.200.222.212:27017/test_mongo?authSource=admin&authMechanism=SCRAM-SHA-1
+#      database: testMongo
+#      username: admin
+#      password: 123456
+#      port: 27017
+#      host: 101.200.222.212
+#      authentication-database: admin
 #    数据源配置
 #  datasource:
 #    type: com.alibaba.druid.pool.DruidDataSource
@@ -57,7 +67,6 @@ spring:
 #    password: dc.342624
 #    druid:
 #      validationQuery: SELECT 1
-
 
 
 # Logger Config

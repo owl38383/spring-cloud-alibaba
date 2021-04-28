@@ -3,6 +3,10 @@ package com.dc.order.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.dc.common.entity.OrderBase;
+import lombok.Builder;
+import lombok.Data;
+
+import java.util.Date;
 
 /**
  * @Classname Order
@@ -11,5 +15,18 @@ import com.dc.common.entity.OrderBase;
  * @Author 刁闯
  */
 @TableName(value = "test_order")
-public class Order extends OrderBase {
+@Data
+public class Order  {
+
+    private Long objId;
+
+    private String name;
+
+    private String cellPhone;
+
+    private Integer age;
+
+    private Date createTime;
+
+    private Date updateTime;
 }

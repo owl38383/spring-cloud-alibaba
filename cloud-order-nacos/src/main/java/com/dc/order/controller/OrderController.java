@@ -29,7 +29,7 @@ public class OrderController {
 			return "dddddddddd";
 		}
 
-		@RequestMapping("add")
+		@RequestMapping("/order/add")
 		public Object add(@RequestBody Order order) {
 				int i = new Random().nextInt(2 << 4);
 				order.setAge(i);
