@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: cloud-web-nacos
+  cloud:
+    nacos:
+      config:
+        server-addr: 101.200.222.212:8848
+        name: cloud-web-nacos
+        file-extension: yaml
+        context-path: nacos
+      discovery:
+        enabled: true
+
+    sentinel:
+      transport:
+        dashboard: localhost:8848
+        port: 8719
