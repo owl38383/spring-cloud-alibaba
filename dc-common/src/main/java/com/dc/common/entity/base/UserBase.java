@@ -1,15 +1,15 @@
 package com.dc.common.entity.base;
 
 
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 
-@TableName(value = "test_user")
 @Data
 public class UserBase implements Serializable {
+    @TableId
     private Long id;
     private String username;//用户名唯一
     private String cellPhone;//手机号唯一

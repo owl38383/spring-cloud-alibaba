@@ -1,22 +1,13 @@
 package com.dc.order.controller;
 
-import cn.hutool.json.JSON;
-import cn.hutool.json.JSONUtil;
-import com.dc.order.annotation.ActionLogs;
 import com.dc.order.entity.Order;
-import org.apache.commons.lang.RandomStringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.http.HttpRequest;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServlet;
-import java.util.ArrayList;
+import javax.annotation.Resource;
 import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 /**
  * @PACKAGE_NAME: com.dc.order.controller
@@ -27,13 +18,12 @@ import java.util.Random;
 @RestController
 public class TestMongoController {
 
-    @Autowired
+    @Resource
     MongoTemplate mongoTemplate;
 
-    @ActionLogs
     @RequestMapping("/mongo")
     public Object queryList(){
-        return mongoTemplate.find(new Query(),Order.class,"test_order");
+        return mongoTemplate.find(new Query(), Order.class,"test_order");
     }
 
     @RequestMapping("/add")

@@ -3,6 +3,7 @@ package com.dc.order.controller;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.dc.order.entity.Order;
 import com.dc.order.service.OrderService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -17,31 +18,34 @@ import java.util.Random;
  **/
 @RestController
 public class OrderController {
-		@Resource
-		private OrderService<Order> orderService;
+    @Resource
+    private OrderService<Order> orderService;
 
-		@RequestMapping("/order/test")
-		public Object tets() {
-			return "我是端口7001";
-		}
+    @Value("${server.port}")
+    String port;
 
-		@PostMapping("/order/add")
-		public Object add(@RequestBody Order order) {
-				int i = new Random().nextInt(2 << 4);
-				order.setAge(i);
-				order.setCreateTime(new Date());
-				return orderService.insert(order);
-		}
+    @RequestMapping("/order/test")
+    public Object tets() {
+        return "我是端口" + port;
+    }
 
-		@GetMapping("/order/get/{id}")
-		@DS("slave_1")
-		public Object getById(@PathVariable("id") Long id) {
-				return orderService.selectById(id);
-		}
+    @PostMapping("/order/add")
+    public Object add(@RequestBody Order order) {
+        int i = new Random().nextInt(2 << 4);
+        order.setAge(i);
+        order.setCreateTime(new Date());
+        return orderService.insert(order);
+    }
 
-		@PostMapping("/order/queryList")
-		@DS("master")
-		public Object queryList() {
-				return orderService.selectList(null);
-		}
+    @GetMapping("/order/get/{id}")
+    @DS("slave_1")
+    public Object getById(@PathVariable("id") Long id) {
+        return orderService.selectById(id);
+    }
+
+    @PostMapping("/order/queryList")
+    @DS("master")
+    public Object queryList() {
+        return orderService.selectList(null);
+    }
 }
