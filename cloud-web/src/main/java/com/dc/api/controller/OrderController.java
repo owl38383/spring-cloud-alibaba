@@ -40,6 +40,11 @@ public class OrderController {
     @Resource
     OrderService orderService;
 
+    @GetMapping("/log")
+    public Object operationLog() {
+        return orderService.operationLog();
+    }
+
     @PostMapping("/order/add")
     public Object add(@RequestBody Order order) {
         return orderService.add(order);

@@ -23,6 +23,9 @@ public interface OrderService {
     @GetMapping("/order/get/{id}")
     Object getById(@PathVariable("id") Long id);
 
+    @GetMapping("/log")
+    Object operationLog();
+
     @PostMapping("/order/add")
     public Object add(@RequestBody Order order);
 }
