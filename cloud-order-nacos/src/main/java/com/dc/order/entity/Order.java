@@ -1,12 +1,7 @@
 package com.dc.order.entity;
 
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.dc.common.entity.OrderBase;
-import lombok.Builder;
-import lombok.Data;
-
-import java.util.Date;
+import com.dc.common.entity.base.OrderBase;
 
 /**
  * @Classname Order
@@ -14,19 +9,5 @@ import java.util.Date;
  * @Date 2021/3/25 15:35
  * @Author 刁闯
  */
-@TableName(value = "test_order")
-@Data
-public class Order  {
-
-    private Long objId;
-
-    private String name;
-
-    private String cellPhone;
-
-    private Integer age;
-
-    private Date createTime;
-
-    private Date updateTime;
+public class Order extends OrderBase  {
 }

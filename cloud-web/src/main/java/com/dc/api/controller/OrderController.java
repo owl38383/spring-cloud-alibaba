@@ -1,6 +1,5 @@
 package com.dc.api.controller;
 
-import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +16,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class OrderController {
 
-    public static final String prefiex = "http://cloud-order-nacos";
+    public static final String PREFIX = "http://cloud-order-nacos:7001";
 
     @Autowired
     RestTemplate restTemplate;
@@ -27,7 +26,7 @@ public class OrderController {
 
     @RequestMapping("test")
     public Object test() {
-        return restTemplate.getForObject(prefiex + "/order/test", String.class);
+        return restTemplate.getForObject(PREFIX + "/order/test", String.class);
     }
 
     @RequestMapping("test1")
