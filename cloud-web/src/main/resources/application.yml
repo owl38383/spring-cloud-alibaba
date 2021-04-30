@@ -4,6 +4,3 @@ server:
 feign:
   sentinel:
     enabled: true
-ribbon:
-  eager-load:
-    enabled: off
