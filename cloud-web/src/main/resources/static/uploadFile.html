@@ -2,6 +2,9 @@
 <html lang="zh-cn">
 <head>
     <meta charset="UTF-8">
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
     <title>文件上传/下载</title>
 </head>
 <body>
@@ -33,9 +36,15 @@
         chunked: true,
         thread: 20,
         method: "POST",
-        fileSizeLimit: 1024*1024*1024*10,
-        fileSingleSizeLimit: 1024*1024*1024,
-        fileVal: "file"
+        fileSizeLimit: 1024 * 1024 * 1024 * 10,
+        fileSingleSizeLimit: 1024 * 1024 * 1024,
+        fileVal: "file",
+        uploadBeforeSend: {
+            header: {
+                token: $("meta[name='_csrf']").attr("content"),
+                header: $("meta[name='_csrf_header']").attr("content")
+            }
+        }
     });
 
     // 当有文件被添加进队列的时候
@@ -49,7 +58,7 @@
 
     // 文件上传过程中创建进度条实时显示。
     uploader.on('uploadProgress', function (file, percentage) {
-        $('#' + file.id).find('p.value').text(percentage*100 + "%");
+        $('#' + file.id).find('p.value').text(percentage * 100 + "%");
     });
 
     uploader.on('uploadSuccess', function (file) {
