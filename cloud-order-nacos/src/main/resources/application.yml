@@ -52,6 +52,8 @@ spring:
   data:
     mongodb:
       uri: mongodb://admin:123456@101.200.222.212:27017/test_mongo?authSource=admin&authMechanism=SCRAM-SHA-1
+  redis:
+    url: redis://39.99.251.32:6379
 #      database: testMongo
 #      username: admin
 #      password: 123456
@@ -67,8 +69,6 @@ spring:
 #    password: dc.342624
 #    druid:
 #      validationQuery: SELECT 1
-
-
 # Logger Config
 logging:
   level:

@@ -83,7 +83,7 @@ public class LogAspect {
                 .responseTime(System.currentTimeMillis() - time.getTime())
                 .build();
         mongoTemplate.save(operationLog);
-        System.out.println("记录日志:" + operationLog);
+//        System.out.println("记录日志:" + operationLog);
     }
 
 
